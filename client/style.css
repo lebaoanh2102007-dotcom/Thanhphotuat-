@@ -35,3 +35,25 @@
   display: block !important;
   padding: 15px;
 }
+
+@media screen and (orientation: landscape) {
+  #mobileControls {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: fixed !important;
+    left: 20px !important;
+    bottom: 30px !important;
+    z-index: 99999 !important;
+  }
+
+  #joystick {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  #runButton {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
