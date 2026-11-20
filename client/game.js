@@ -232,3 +232,57 @@ blockButton?.addEventListener('pointerup', stopBlocking);
 blockButton?.addEventListener('pointercancel', stopBlocking);
 
 updateHP();
+
+const drivingSchool = {
+  name: 'Trường Dạy Lái Xe Tuất',
+  x: 35,
+  z: 35
+};
+
+const motorbikeShop = {
+  name: 'Đại Lý Xe Máy Tuất',
+  x: -35,
+  z: 35
+};
+
+let hasBikeLicense = false;
+let ownedBike = null;
+let gameMoney = 50000000;
+
+function makeBuilding(name, x, z, color) {
+  const building = new THREE.Mesh(
+    new THREE.BoxGeometry(15, 8, 12),
+    new THREE.MeshStandardMaterial({color})
+  );
+  building.position.set(x, 4, z);
+  scene.add(building);
+}
+
+makeBuilding('Trường lái xe', 35, 35, 0x2288ff);
+makeBuilding('Cửa hàng xe', -35, 35, 0xffaa00);
+
+function takeDrivingTest() {
+  const answer = prompt(
+    'Thi bằng lái miễn phí:\nĐèn đỏ phải làm gì?\nA. Dừng lại\nB. Đi tiếp'
+  );
+  if (answer?.trim().toUpperCase() === 'A') {
+    hasBikeLicense = true;
+    alert('Chúc mừng! Đã nhận bằng lái A1.');
+  } else {
+    alert('Chưa đạt. Hãy thi lại!');
+  }
+}
+
+function buyMotorbike() {
+  if (!hasBikeLicense) {
+    alert('Bạn cần thi bằng lái trước!');
+    return;
+  }
+  if (gameMoney < 10000000) {
+    alert('Không đủ tiền mua xe!');
+    return;
+  }
+  gameMoney -= 10000000;
+  ownedBike = 'Xe máy Shipper';
+  alert('Mua xe thành công!');
+}
