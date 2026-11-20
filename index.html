@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#101827">
+  <title>Thành Phố Tuất RP — Alpha 0.2</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <div id="game"></div>
+  <div id="hud">
+    <header class="topbar">
+      <div><b>THÀNH PHỐ TUẤT</b><small>ROLEPLAY • ALPHA 0.2</small></div>
+      <div class="stats"><span id="online">● 0 online</span><span id="clock">12:00</span></div>
+    </header>
+    <section class="identity"><b id="playerName">Người chơi</b><span id="playerJob">Người dân</span><span id="coords">X: 0 • Z: 0</span></section>
+    <div class="help">WASD di chuyển · Shift chạy · Kéo màn hình xoay camera</div>
+    <div id="toast"></div>
+  </div>
+
+  <section id="joinScreen" class="overlay">
+    <div class="panel">
+      <div class="brand-mark">TP</div>
+      <p class="eyebrow">CHÀO MỪNG ĐẾN VỚI</p>
+      <h1>THÀNH PHỐ TUẤT</h1>
+      <p class="muted">Một thành phố roleplay trực tuyến đang chờ bạn khám phá.</p>
+      <label for="nameInput">Tên nhân vật</label>
+      <input id="nameInput" maxlength="20" placeholder="Nhập tên của bạn" value="Người chơi">
+      <label for="jobInput">Chọn nghề nghiệp</label>
+      <select id="jobInput">
+        <option>Người dân</option><option>Cảnh sát</option><option>Cướp</option>
+        <option>Shipper</option><option>Bán hàng</option><option>Thợ sửa xe</option><option>Bác sĩ</option>
+      </select>
+      <button id="joinButton">VÀO THÀNH PHỐ</button>
+      <p class="tiny">Bản thử nghiệm Alpha · Không yêu cầu tài khoản</p>
+    </div>
+  </section>
+
+  <aside id="chatBox" class="chat">
+    <div class="chat-head"><b>TRÒ CHUYỆN</b><button id="chatToggle" aria-label="Ẩn chat">—</button></div>
+    <div id="messages" class="messages"><div class="system">Chào mừng đến Thành Phố Tuất!</div></div>
+    <form id="chatForm"><input id="chatInput" maxlength="160" autocomplete="off" placeholder="Nhập tin nhắn..."><button>GỬI</button></form>
+  </aside>
+
+  <div id="mobileControls">
+    <div id="joystick"><div id="stick"></div></div>
+    <button id="runButton">CHẠY</button>
+  </div>
+  <div id="connection">Đang kết nối máy chủ...</div>
+  <script type="module" src="/game.js"></script>
+</body>
+</html>
