@@ -273,7 +273,43 @@ function takeDrivingTest() {
   }
 }
 
-function buyMotorbike() {
+function buyMotorbike()
+/* Nut tuong tac Alpha 0.3 */
+const interactPanel = document.createElement('div');
+
+interactPanel.style.cssText = `
+  position:fixed;
+  top:100px;
+  right:15px;
+  z-index:99999;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+`;
+
+const licenseButton = document.createElement('button');
+licenseButton.textContent = '🏫 THI BẰNG LÁI';
+licenseButton.onclick = () => takeDrivingTest();
+
+const freeBikeButton = document.createElement('button');
+freeBikeButton.textContent = '🏍️ NHẬN XE';
+freeBikeButton.onclick = () => buyMotorbike();
+
+for (const btn of [licenseButton, freeBikeButton]) {
+  btn.style.cssText = `
+    padding:12px;
+    border-radius:10px;
+    background:#163b61;
+    color:white;
+    border:2px solid white;
+    font-weight:bold;
+    cursor:pointer;
+  `;
+  interactPanel.appendChild(btn);
+}
+
+document.body.appendChild(interactPanel);
+ {
   if (!hasBikeLicense) {
     alert('Bạn phải thi bằng lái tại trường trước!');
     return;
