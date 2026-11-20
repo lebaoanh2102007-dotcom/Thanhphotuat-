@@ -275,6 +275,20 @@ function takeDrivingTest() {
 
 function buyMotorbike() {
   if (!hasBikeLicense) {
+    alert('Bạn phải thi bằng lái tại trường trước!');
+    return;
+  }
+
+  if (ownedBike) {
+    alert('Bạn đã có xe máy rồi!');
+    return;
+  }
+
+  ownedBike = 'Xe máy Shipper';
+  alert('Nhận xe máy miễn phí thành công!');
+}
+
+  if (!hasBikeLicense) {
     alert('Bạn cần thi bằng lái trước!');
     return;
   }
