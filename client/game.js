@@ -336,3 +336,17 @@ document.body.appendChild(interactPanel);
   ownedBike = 'Xe máy Shipper';
   alert('Mua xe thành công!');
 }
+
+const licenseBtn = document.createElement('button');
+licenseBtn.textContent = '🏫 THI BẰNG LÁI';
+licenseBtn.onclick = () => takeDrivingTest();
+
+const bikeBtn = document.createElement('button');
+bikeBtn.textContent = '🏍️ NHẬN XE';
+bikeBtn.onclick = () => buyMotorbike();
+
+[licenseBtn, bikeBtn].forEach((btn, i) => {
+  btn.style.cssText =
+    `position:fixed;top:${100 + i * 55}px;right:15px;z-index:99999;padding:12px;background:#163b61;color:white;border:2px solid white;border-radius:10px`;
+  document.body.appendChild(btn);
+});
