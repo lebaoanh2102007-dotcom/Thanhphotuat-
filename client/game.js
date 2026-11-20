@@ -193,3 +193,42 @@ function animate(){
 animate();
 setInterval(()=>{const d=new Date();document.getElementById('clock').textContent=d.toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'});},1000);
 addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+
+// Thành Phố Tuất RP - Hệ thống chiến đấu Alpha 0.3
+let playerHP = 100;
+let isBlocking = false;
+
+const punchButton = document.getElementById('punchButton');
+const blockButton = document.getElementById('blockButton');
+
+function updateHP() {
+  let hpDisplay = document.getElementById('hpDisplay');
+  if (!hpDisplay) {
+    hpDisplay = document.createElement('div');
+    hpDisplay.id = 'hpDisplay';
+    hpDisplay.style.cssText =
+      'position:fixed;top:65px;left:12px;z-index:9999;background:#222;color:white;padding:10px;border-radius:8px';
+    document.body.appendChild(hpDisplay);
+  }
+  hpDisplay.textContent = `❤️ HP: ${playerHP}/100`;
+}
+
+punchButton?.addEventListener('click', () => {
+  if (!joined || !myAvatar) return;
+  console.log('Nhân vật tung cú đấm - sát thương dự kiến 4 HP');
+});
+
+blockButton?.addEventListener('pointerdown', () => {
+  isBlocking = true;
+  blockButton.textContent = '🛡️ ĐANG THỦ';
+});
+
+function stopBlocking() {
+  isBlocking = false;
+  if (blockButton) blockButton.textContent = '🛡️ THỦ';
+}
+
+blockButton?.addEventListener('pointerup', stopBlocking);
+blockButton?.addEventListener('pointercancel', stopBlocking);
+
+updateHP();
