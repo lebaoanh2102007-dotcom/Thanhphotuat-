@@ -1,1 +1,44 @@
 *{box-sizing:border-box}html,body,#game{margin:0;width:100%;height:100%;overflow:hidden;background:#91b6c5;font-family:Inter,system-ui,-apple-system,sans-serif}canvas{display:block}#hud{position:fixed;inset:0;pointer-events:none;color:#fff}.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:linear-gradient(180deg,#07111ddd,transparent);text-shadow:0 2px 5px #0008}.topbar b{display:block;letter-spacing:1.6px;font-size:14px}.topbar small{font-size:9px;letter-spacing:2px;color:#a8c4d9}.stats{display:flex;gap:14px;font-size:12px}.stats span:first-child{color:#9ff0b6}.identity{position:absolute;top:76px;left:18px;display:flex;gap:9px;align-items:center;font-size:12px;background:#081522b8;padding:9px 12px;border:1px solid #ffffff26;border-radius:10px}.identity span{color:#c5d5e2}.identity span:nth-child(2){color:#ffd58a}.help{position:absolute;top:122px;left:18px;font-size:11px;color:#fff;text-shadow:0 1px 4px #000}.overlay{position:fixed;inset:0;display:grid;place-items:center;background:linear-gradient(120deg,#07111dcc,#102a39bb);z-index:5;padding:18px}.panel{width:min(420px,100%);background:#111e2df2;color:#fff;border:1px solid #91c5e044;border-radius:20px;padding:28px;box-shadow:0 25px 80px #0008}.brand-mark{width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,#4b69e8,#7b50c7);display:grid;place-items:center;font-weight:900;font-size:20px;margin-bottom:18px}.eyebrow{font-size:10px;letter-spacing:3px;color:#9bb9d4;margin:0}.panel h1{font-size:26px;line-height:1.1;margin:8px 0 10px;letter-spacing:.5px}.muted{font-size:13px;color:#b4c4d3;line-height:1.5;margin:0 0 22px}.panel label{display:block;font-size:11px;color:#b9cbdc;margin:13px 0 6px}.panel input,.panel select{width:100%;height:44px;border-radius:9px;border:1px solid #3a5369;background:#0a1521;color:white;padding:0 12px;font-size:14px}.panel button{width:100%;height:47px;margin-top:20px;border:0;border-radius:10px;background:linear-gradient(90deg,#5c75f0,#8759d8);color:#fff;font-weight:800;letter-spacing:1px}.tiny{text-align:center;color:#8196aa;font-size:10px;margin:16px 0 0}.chat{position:fixed;right:16px;bottom:16px;width:min(310px,calc(100vw - 32px));background:#081522c9;border:1px solid #ffffff2b;border-radius:12px;color:#fff;z-index:2;backdrop-filter:blur(10px)}.chat-head{height:38px;padding:0 11px;display:flex;align-items:center;justify-content:space-between;font-size:11px;letter-spacing:1px}.chat-head button{border:0;background:none;color:#fff;font-size:18px}.messages{height:130px;overflow:auto;padding:5px 11px;font-size:11px;line-height:1.5}.messages .system{color:#8db6d4;font-style:italic}.messages .msg{margin:4px 0;overflow-wrap:anywhere}.messages .msg b{color:#ffd58a}.chat form{display:flex;border-top:1px solid #ffffff20}.chat form input{min-width:0;flex:1;background:transparent;border:0;color:white;padding:10px;font-size:12px;outline:none}.chat form button{border:0;background:#536ee7;color:white;padding:0 13px;font-size:10px;font-weight:800;border-radius:0 0 10px 0}#connection{position:fixed;left:16px;bottom:17px;color:#fff;font-size:10px;background:#071522aa;padding:7px 10px;border-radius:20px;z-index:2}#toast{position:absolute;top:165px;left:50%;transform:translateX(-50%);background:#071522cc;padding:8px 13px;border-radius:8px;font-size:12px;opacity:0;transition:opacity .2s}#mobileControls{display:none;position:fixed;inset:auto 0 22px 0;z-index:3;pointer-events:none}#joystick{pointer-events:auto;position:absolute;left:22px;bottom:0;width:112px;height:112px;border-radius:50%;background:#07152266;border:1px solid #ffffff66;touch-action:none}#stick{position:absolute;left:34px;top:34px;width:42px;height:42px;border-radius:50%;background:#dce9f5bb;border:1px solid #fff}#runButton{pointer-events:auto;position:absolute;right:24px;bottom:20px;width:72px;height:72px;border-radius:50%;border:1px solid #fff8;background:#536ee7cc;color:#fff;font-size:11px;font-weight:800;touch-action:none}.chat.collapsed .messages,.chat.collapsed form{display:none}@media(max-width:700px){.help{top:auto;bottom:150px;max-width:190px;line-height:1.5}.identity{top:68px;left:10px;gap:6px;font-size:10px;padding:7px}.topbar{padding:12px}.topbar b{font-size:12px}.stats{font-size:10px;gap:8px}.chat{right:9px;bottom:150px;width:205px}.messages{height:85px}#mobileControls{display:block}#connection{bottom:8px;left:9px;font-size:9px}.chat form input{font-size:11px}}
+
+/* Dieu khien cho dien thoai man hinh ngang */
+@media (orientation: landscape) and (pointer: coarse) {
+  #mobileControls {
+    display: block !important;
+    bottom: 18px;
+  }
+
+  #joystick {
+    left: 22px;
+    bottom: 0;
+    touch-action: none;
+  }
+
+  #runButton {
+    right: 24px;
+    bottom: 0;
+  }
+
+  .chat {
+    right: 12px;
+    bottom: 110px;
+    width: 190px;
+  }
+
+  .messages {
+    height: 65px;
+  }
+
+  .help {
+    display: none;
+  }
+
+  .overlay {
+    overflow-y: auto;
+    align-items: start;
+  }
+
+  .panel {
+    padding: 14px 20px;
+    margin: auto;
+  }
+}
