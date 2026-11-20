@@ -57,3 +57,32 @@
     visibility: visible !important;
   }
 }
+
+/* Sua joystick man hinh ngang */
+@media (orientation: landscape) and (pointer: coarse) {
+  #mobileControls {
+    display: block !important;
+    position: fixed !important;
+    inset: auto 0 20px 0 !important;
+    width: 100% !important;
+    height: 120px !important;
+    z-index: 99999 !important;
+    pointer-events: none !important;
+  }
+
+  #joystick {
+    position: absolute !important;
+    left: 20px !important;
+    bottom: 0 !important;
+    pointer-events: auto !important;
+    touch-action: none !important;
+  }
+
+  #runButton {
+    position: absolute !important;
+    right: 20px !important;
+    left: auto !important;
+    bottom: 15px !important;
+    pointer-events: auto !important;
+  }
+}
