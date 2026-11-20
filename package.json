@@ -1,8 +1,13 @@
 {
   "name": "thanh-pho-tuat-online-alpha",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Thành Phố Tuất RP online prototype",
-  "scripts": {"start":"node server.js"},
-  "dependencies": {"express":"^4.21.2","socket.io":"^4.8.1"}
+  "description": "Thanh Pho Tuat RP multiplayer 3D prototype",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
 }

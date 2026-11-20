@@ -1,20 +1,32 @@
-# Thành Phố Tuất RP — Alpha 0.1 (prototype)
+# Thành Phố Tuất RP — Alpha 0.2
 
-Prototype multiplayer browser game: third-person primitive avatars, generated city blocks, job selection, live position sync and chat.
+Bổ sung frontend 3D cho server Node.js + Socket.IO hiện có.
 
-## Run locally
-1. Install Node.js 18+.
-2. In this folder: `npm install`
-3. Run: `npm start`
-4. Open `http://localhost:3000`.
-5. To test multiplayer on the same computer, open multiple browser tabs. For friends on other networks, deploy this folder to a Node hosting provider with WebSocket support (Render/Railway/Fly/etc.) and share the deployed URL.
+## Chạy thử trên máy tính
+1. Cài Node.js 18 trở lên.
+2. Mở Terminal trong thư mục dự án.
+3. Chạy `npm install`.
+4. Chạy `npm start`.
+5. Mở `http://localhost:3000`.
 
-## Controls
-- WASD: move
-- Shift: sprint
-- Drag mouse: rotate camera
-- Enter: focus chat; send with button
-- Mobile: joystick + Run button
+## Đưa lên Render
+1. Đẩy toàn bộ nội dung thư mục này lên GitHub, giữ nguyên `package.json` và `server.js`.
+2. Trên Render chọn **New + → Web Service**, kết nối repository.
+3. Build Command: `npm install`
+4. Start Command: `npm start`
+5. Deploy, đợi dịch vụ chạy rồi mở URL `https://...onrender.com`.
 
-## Important
-This is a prototype, not production-ready: no authentication, persistent database, moderation, anti-cheat, optimized 3D assets, vehicles, missions, or secure economy yet. Character models are primitive placeholders. Server state resets when server restarts.
+Socket.IO dùng kết nối WebSocket/polling cùng origin, nên không cần cấu hình URL máy chủ riêng.
+
+## Điều khiển
+- WASD: đi lại
+- Shift: chạy
+- Kéo chuột/màn hình: xoay camera
+- Điện thoại/iPad: joystick và nút CHẠY
+- Chat: nhập tin nhắn ở khung trò chuyện
+
+## Lưu ý Alpha
+- Cần internet để tải Three.js từ jsDelivr CDN.
+- Server hiện tại lưu người chơi trong RAM; khởi động lại sẽ mất trạng thái.
+- Chưa có tài khoản, database, phân quyền nghề nghiệp, kiểm duyệt chat, chống gian lận hoặc hệ thống kinh tế.
+- Không dùng cho dữ liệu cá nhân hoặc giao dịch thật.
